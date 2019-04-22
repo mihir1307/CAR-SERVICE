@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	
+		<title>google-signin</title>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+	
+	    <meta name="google-signin-client_id" content="708436981887-a98hnuoo62dabjh6s0bkr8f8mos041ih.apps.googleusercontent.com">
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		
+		
+		<style>
+	<style>
+		
+	a{
+	text-decoration:none;
+	}
+	.data{
+	display:none;
+	}	
+		
+		
+		</style>
+	
+	</head>
+	<body>
+	<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+		alert("you have been successfully signedOut")
+		$(".format").css("display","block");
+  $(".data").css("display","none");
+	 
+    });
+  }
+  
+  function onSignIn(googleUser){
+  var profile = googleUser.getBasicProfile();
+  $(".format").css("display","none");
+  $(".data").css("display","block");
+  $("#pic").attr("src",profile.getImageUrl());
+  $("#email").text(profile.getEmail());
+  }
+	
+
+</script>
+	
+	
+	<div class="format">
+	
+	<p><div class="g-signin2" data-onSuccess="onSignIn"></div></p>
+	<p> To Book an appointment please login to your google account.</p>
+	
+
+			</div>
+		<div class="data">
+		<p>profile details</p>
+		<img id="pic" class="img-circle" width="100" height="100"/>
+		<p>Email Address</p>
+		<p id="email" class="alert alert-danger"></p>
+		<button onclick="signOut()" class="btn btn-danger">signOut</button>
+		<div id="button"><a href="form1.html">Appointment Booking</a></div
+		
+		</div>
+	
+		
+	</body>
+</html>
+
+
+
